@@ -30,16 +30,16 @@ public class ApiExceptionHandler {
 
     }
 
-    @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<ErrorMessage> accessDeniedException(AccessDeniedException ex,
-                                                              HttpServletRequest request
-    ) {
-        log.error("API Error - UserNameUniqueViolationException - ", ex);
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.APPLICATION_JSON).body(
-                new ErrorMessage(request, HttpStatus.FORBIDDEN, ex.getMessage())
-        );
-
-    }
+//    @ExceptionHandler(AccessDeniedException.class)
+//    public ResponseEntity<ErrorMessage> accessDeniedException(AccessDeniedException ex,
+//                                                              HttpServletRequest request
+//    ) {
+//        log.error("API Error - UserNameUniqueViolationException - ", ex);
+//        return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.APPLICATION_JSON).body(
+//                new ErrorMessage(request, HttpStatus.FORBIDDEN, ex.getMessage())
+//        );
+//
+//    }
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorMessage> entityNotFoundException(ResourceNotFoundException ex,

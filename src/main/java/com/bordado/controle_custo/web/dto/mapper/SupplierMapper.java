@@ -3,7 +3,6 @@ package com.bordado.controle_custo.web.dto.mapper;
 import com.bordado.controle_custo.entity.Supplier;
 import com.bordado.controle_custo.web.dto.supplier.SupplierCreateDTO;
 import com.bordado.controle_custo.web.dto.supplier.SupplierResponseDTO;
-import com.bordado.controle_custo.web.dto.supplier.SupplierUpdateDTO;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -19,11 +18,11 @@ public class SupplierMapper {
         return new ModelMapper().map(supplier, SupplierResponseDTO.class);
     }
 
-    public  static SupplierUpdateDTO toDtoUpdate(Supplier supplier) {
-        return new ModelMapper().map(supplier, SupplierUpdateDTO.class);
+    public  static SupplierResponseDTO toDtoUpdate(Supplier supplier) {
+        return new ModelMapper().map(supplier, SupplierResponseDTO.class);
     }
 
-    public static Supplier toSupplierUpdate (SupplierUpdateDTO updateDTO) {
+    public static Supplier toSupplierUpdate (SupplierResponseDTO updateDTO) {
         return new ModelMapper().map(updateDTO, Supplier.class);
     }
 }

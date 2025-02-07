@@ -9,7 +9,6 @@ import com.bordado.controle_custo.web.dto.mapper.PageableMapper;
 import com.bordado.controle_custo.web.dto.mapper.SupplierMapper;
 import com.bordado.controle_custo.web.dto.supplier.SupplierCreateDTO;
 import com.bordado.controle_custo.web.dto.supplier.SupplierResponseDTO;
-import com.bordado.controle_custo.web.dto.supplier.SupplierUpdateDTO;
 import com.bordado.controle_custo.web.exception.ErrorMessage;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -158,7 +157,7 @@ public class SupplierController {
     @PutMapping("/{id}")
     public ResponseEntity<SupplierResponseDTO> updateSupplier(
             @PathVariable Long id,
-            @RequestBody SupplierUpdateDTO updateDTO
+            @RequestBody SupplierResponseDTO updateDTO
     ) {
         Supplier updated = SupplierMapper.toSupplierUpdate(updateDTO);
         Supplier supplier = supplierService.updateSupplier(id, updated);
