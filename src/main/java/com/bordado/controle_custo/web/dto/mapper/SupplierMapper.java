@@ -18,10 +18,6 @@ public class SupplierMapper {
         return new ModelMapper().map(supplier, SupplierResponseDTO.class);
     }
 
-    public  static SupplierResponseDTO toDtoUpdate(Supplier supplier) {
-        return new ModelMapper().map(supplier, SupplierResponseDTO.class);
-    }
-
     public static Supplier toSupplierUpdate (SupplierResponseDTO updateDTO) {
         return new ModelMapper().map(updateDTO, Supplier.class);
     }

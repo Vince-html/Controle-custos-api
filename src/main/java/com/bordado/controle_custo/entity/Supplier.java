@@ -35,25 +35,25 @@ public class Supplier implements Serializable{
     @Column(name="contact", nullable = false, length = 250)
     private String contact;
 
-    @CreatedDate
-    @Column(name="dt_created")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime dtCreated;
-
-    @LastModifiedDate
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    @Column(name="dt_modified")
-    private LocalDateTime dtModified;
-
-    @CreatedBy
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    @Column(name="created_from")
-    private String createdFrom;
-
-    @LastModifiedBy
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    @Column(name="modified_from")
-    private String modifiedFrom;
+//    @CreatedDate
+//    @Column(name="dt_created")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//    private LocalDateTime dtCreated;
+//
+//    @LastModifiedDate
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//    @Column(name="dt_modified")
+//    private LocalDateTime dtModified;
+//
+//    @CreatedBy
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//    @Column(name="created_from")
+//    private String createdFrom;
+//
+//    @LastModifiedBy
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//    @Column(name="modified_from")
+//    private String modifiedFrom;
 
 
     @Override

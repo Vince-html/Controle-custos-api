@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class SupplierService {
@@ -20,9 +22,9 @@ public class SupplierService {
 
 
     @Transactional
-    public Supplier salvar (Supplier supplier) {
+    public void salvar (Supplier supplier) {
         try {
-            return supplierRepository.save(supplier);
+            supplierRepository.save(supplier);
         } catch (org.springframework.dao.DataIntegrityViolationException ex) {
             throw new UniqueNameViolationException("Fornecedor já cadastrado.");
         }
@@ -44,16 +46,10 @@ public class SupplierService {
         Supplier supplier = supplierRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Fornecedor com ID " + id + " não encontrado."));
 
-        if (updateDTO.getName() != null) {
-            supplier.setName(updateDTO.getName());
-        }
-
-        if (updateDTO.getContact() != null) {
-            supplier.setContact(updateDTO.getContact());
-        }
+        Optional.ofNullable(updateDTO.getName()).ifPresent(supplier::setName);
+        Optional.ofNullable(updateDTO.getContact()).ifPresent(supplier::setContact);
 
         return supplierRepository.save(supplier);
 
     }
-
 }

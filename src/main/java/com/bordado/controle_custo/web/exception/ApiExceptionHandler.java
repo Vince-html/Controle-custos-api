@@ -1,6 +1,7 @@
 package com.bordado.controle_custo.web.exception;
 
 import com.bordado.controle_custo.exceptions.ResourceNotFoundException;
+import com.bordado.controle_custo.exceptions.SupplierNotFoundException;
 import com.bordado.controle_custo.exceptions.UniqueNameViolationException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -41,8 +42,8 @@ public class ApiExceptionHandler {
 //
 //    }
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorMessage> entityNotFoundException(ResourceNotFoundException ex,
+    @ExceptionHandler({ResourceNotFoundException.class, SupplierNotFoundException.class})
+    public ResponseEntity<ErrorMessage> entityNotFoundException(RuntimeException ex,
                                                                 HttpServletRequest request
     ) {
         log.error("API Error - EntityNotFoundException - ", ex);
