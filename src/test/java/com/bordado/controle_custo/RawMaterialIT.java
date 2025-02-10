@@ -169,7 +169,7 @@ public class RawMaterialIT {
         );
         ErrorMessage response = testClient
                 .put()
-                .uri("/api/v1/raw_materials/{id}", 610)
+                .uri("/api/v1/raw_materials/{id}", 6)
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(rawMaterial)
                 .exchange()
