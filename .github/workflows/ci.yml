@@ -23,14 +23,13 @@ jobs:
           java-version: '23'      
           cache: maven             
 
-      - name: 📦 Construir e rodar testes
-        run: mvn test verify -DskipTests=false -DfailIfNoTests=false
+      - name: 📦 Construir, rodar testes e verificar cobertura
+        run: mvn clean verify -DskipTests=false -DfailIfNoTests=false
 
-      - name: ✅ Exibir resultado dos testes
+      - name: ✅ Exibir cobertura de código
         if: always()
-        run: |
-          find target -name "*.txt" | xargs cat | tee test-results.log
+        run: cat target/site/jacoco/jacoco.xml | grep '<counter type="LINE"' || echo "Cobertura não encontrada"
 
       - name: 📢 Notificar falha (opcional)
         if: failure()
-        run: echo "Os testes falharam! Verifique os logs acima."  
+        run: echo "Os testes falharam ou a cobertura foi insuficiente! Verifique os logs acima."
