@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.bordado.controle_custo.LaborTypesEntityIT
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.bordado.controle_custo.LaborTypesEntityIT
