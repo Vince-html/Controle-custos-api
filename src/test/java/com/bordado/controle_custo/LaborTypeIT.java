@@ -154,55 +154,30 @@ public class LaborTypeIT {
         org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(400);
     }
 
-//    @Test
-//    public void deleteLaborType_dataValid_returnStatus202() {
-//
-//        testClient
-//                .delete()
-//                .uri("/api/v1/labor_types/{id}", 10)
-//                .exchange()
-//                .expectStatus().isAccepted();
-//
-//    }
-//
-//    @Test
-//    public void deleteLaborType_dataValid_returnStatus404() {
-//
-//        ErrorMessage response = testClient
-//                .delete()
-//                .uri("/api/v1/labor_types/{id}", this.id)
-//                .exchange()
-//                .expectStatus().isNotFound()
-//                .expectBody(ErrorMessage.class)
-//                .returnResult().getResponseBody();
-//
-//        org.assertj.core.api.Assertions.assertThat(response).isNotNull();
-//        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(404);
-//        org.assertj.core.api.Assertions.assertThat(response.getMessage()).isEqualTo(this.notFoundById);
-//    }    @Test
-//    public void deleteLaborType_dataValid_returnStatus202() {
-//
-//        testClient
-//                .delete()
-//                .uri("/api/v1/labor_types/{id}", 10)
-//                .exchange()
-//                .expectStatus().isAccepted();
-//
-//    }
-//
-//    @Test
-//    public void deleteLaborType_dataValid_returnStatus404() {
-//
-//        ErrorMessage response = testClient
-//                .delete()
-//                .uri("/api/v1/labor_types/{id}", this.id)
-//                .exchange()
-//                .expectStatus().isNotFound()
-//                .expectBody(ErrorMessage.class)
-//                .returnResult().getResponseBody();
-//
-//        org.assertj.core.api.Assertions.assertThat(response).isNotNull();
-//        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(404);
-//        org.assertj.core.api.Assertions.assertThat(response.getMessage()).isEqualTo(this.notFoundById);
-//    }
+    @Test
+    public void deleteLaborType_dataValid_returnStatus202() {
+
+        testClient
+                .delete()
+                .uri("/api/v1/labor_types/{id}", 10)
+                .exchange()
+                .expectStatus().isAccepted();
+
+    }
+
+    @Test
+    public void deleteLaborType_dataValid_returnStatus404() {
+
+        ErrorMessage response = testClient
+                .delete()
+                .uri("/api/v1/labor_types/{id}", this.id)
+                .exchange()
+                .expectStatus().isNotFound()
+                .expectBody(ErrorMessage.class)
+                .returnResult().getResponseBody();
+
+        org.assertj.core.api.Assertions.assertThat(response).isNotNull();
+        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(404);
+        org.assertj.core.api.Assertions.assertThat(response.getMessage()).isEqualTo(this.notFoundById);
+    }
 }
