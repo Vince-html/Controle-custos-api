@@ -28,7 +28,7 @@ jobs:
 
       - name: ✅ Exibir cobertura de código
         if: always()
-        run: echo "Cobertura Total: $(grep -oP '(?<=<counter type="LINE" missed=")[0-9]+' target/site/jacoco/jacoco.xml | awk '{sum+=$1} END {print 100 - (sum/NR * 100) "%"}')"
+        run: echo "Cobertura Total $(grep -oP '(?<=<counter type="LINE" missed=")[0-9]+' target/site/jacoco/jacoco.xml | awk '{sum+=$1} END {print 100 - (sum/NR * 100) "%"}')"
 
       - name: 📢 Notificar falha (opcional)
         if: failure()
