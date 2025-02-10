@@ -1,5 +1,8 @@
 # Controle de Custos - API
 
+
+![example branch parameter](https://github.com/Vince-html/Controle-custos-api/actions/workflows/ci.yml/badge.svg?branch=main)
+
 ## Descrição
 Este projeto é uma API desenvolvida em Java utilizando Spring Boot 3 para gerenciar custos de produção, incluindo fornecedores, matérias-primas, valores de mão de obra, margens de lucro e tempo de execução dos trabalhos.
 
