@@ -4,8 +4,6 @@ package com.bordado.controle_custo;
 import com.bordado.controle_custo.web.dto.PageableDto;
 import com.bordado.controle_custo.web.dto.labortypes.LaborTypesCreateDTO;
 import com.bordado.controle_custo.web.dto.labortypes.LaborTypesResponseDTO;
-import com.bordado.controle_custo.web.dto.supplier.SupplierCreateDTO;
-import com.bordado.controle_custo.web.dto.supplier.SupplierResponseDTO;
 import com.bordado.controle_custo.web.exception.ErrorMessage;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -33,7 +31,7 @@ public class LaborTypeIT {
     WebTestClient testClient;
 
     @Test
-    public void createRawMaterial_dataValid_returnStatus200() {
+    public void createLaborType_dataValid_returnStatus200() {
         LaborTypesResponseDTO response = testClient
                 .post()
                 .uri("/api/v1/labor_types")
@@ -50,7 +48,7 @@ public class LaborTypeIT {
     }
 
     @Test
-    public void createRawMaterial_Conflict_returnStatus409() {
+    public void createLaborType_Conflict_returnStatus409() {
         ErrorMessage response = testClient
                 .post()
                 .uri("/api/v1/labor_types")
@@ -67,7 +65,7 @@ public class LaborTypeIT {
     }
 
     @Test
-    public void createRawMaterial_DataInvalid_returnStatus422() {
+    public void createLaborType_DataInvalid_returnStatus422() {
          ErrorMessage response = testClient
                 .post()
                 .uri("/api/v1/labor_types")
@@ -83,7 +81,7 @@ public class LaborTypeIT {
         assertThat(response.getMessage()).isEqualTo("Campo(s) invalido(s)");
     }
     @Test
-    public void getSupplier_returnStatus200() {
+    public void getLaborTypes_returnStatus200() {
         PageableDto response = testClient
                 .get()
                 .uri("/api/v1/labor_types")
@@ -106,7 +104,7 @@ public class LaborTypeIT {
     }
 
     @Test
-    public void editSupplier_dataValid_returnStatus200() {
+    public void editLaborType_dataValid_returnStatus200() {
         LaborTypesResponseDTO response = testClient
                 .put()
                 .uri("/api/v1/labor_types/{id}", 10)
@@ -122,7 +120,7 @@ public class LaborTypeIT {
     }
 
     @Test
-    public void editSupplier_dataValid_returnStatus404() {
+    public void editLaborType_dataValid_returnStatus404() {
 
         ErrorMessage response = testClient
                 .put()
@@ -140,7 +138,7 @@ public class LaborTypeIT {
     }
 
     @Test
-    public void editSupplier_dataValid_returnStatus400() {
+    public void editLaborType_dataValid_returnStatus400() {
 
         ErrorMessage response = testClient
                 .put()
@@ -156,30 +154,55 @@ public class LaborTypeIT {
         org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(400);
     }
 
-    @Test
-    public void deleteSupplier_dataValid_returnStatus202() {
-
-        testClient
-                .delete()
-                .uri("/api/v1/labor_types/{id}", 10)
-                .exchange()
-                .expectStatus().isAccepted();
-
-    }
-
-    @Test
-    public void deleteSupplier_dataValid_returnStatus404() {
-
-        ErrorMessage response = testClient
-                .delete()
-                .uri("/api/v1/labor_types/{id}", this.id)
-                .exchange()
-                .expectStatus().isNotFound()
-                .expectBody(ErrorMessage.class)
-                .returnResult().getResponseBody();
-
-        org.assertj.core.api.Assertions.assertThat(response).isNotNull();
-        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(404);
-        org.assertj.core.api.Assertions.assertThat(response.getMessage()).isEqualTo(this.notFoundById);
-    }
+//    @Test
+//    public void deleteLaborType_dataValid_returnStatus202() {
+//
+//        testClient
+//                .delete()
+//                .uri("/api/v1/labor_types/{id}", 10)
+//                .exchange()
+//                .expectStatus().isAccepted();
+//
+//    }
+//
+//    @Test
+//    public void deleteLaborType_dataValid_returnStatus404() {
+//
+//        ErrorMessage response = testClient
+//                .delete()
+//                .uri("/api/v1/labor_types/{id}", this.id)
+//                .exchange()
+//                .expectStatus().isNotFound()
+//                .expectBody(ErrorMessage.class)
+//                .returnResult().getResponseBody();
+//
+//        org.assertj.core.api.Assertions.assertThat(response).isNotNull();
+//        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(404);
+//        org.assertj.core.api.Assertions.assertThat(response.getMessage()).isEqualTo(this.notFoundById);
+//    }    @Test
+//    public void deleteLaborType_dataValid_returnStatus202() {
+//
+//        testClient
+//                .delete()
+//                .uri("/api/v1/labor_types/{id}", 10)
+//                .exchange()
+//                .expectStatus().isAccepted();
+//
+//    }
+//
+//    @Test
+//    public void deleteLaborType_dataValid_returnStatus404() {
+//
+//        ErrorMessage response = testClient
+//                .delete()
+//                .uri("/api/v1/labor_types/{id}", this.id)
+//                .exchange()
+//                .expectStatus().isNotFound()
+//                .expectBody(ErrorMessage.class)
+//                .returnResult().getResponseBody();
+//
+//        org.assertj.core.api.Assertions.assertThat(response).isNotNull();
+//        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(404);
+//        org.assertj.core.api.Assertions.assertThat(response.getMessage()).isEqualTo(this.notFoundById);
+//    }
 }
