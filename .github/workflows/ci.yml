@@ -24,7 +24,7 @@ jobs:
           cache: maven             
 
       - name: 📦 Construir e rodar testes
-        run: mvn test verify
+        run: mvn test verify -DskipTests=false -DfailIfNoTests=false
 
       - name: ✅ Exibir resultado dos testes
         if: always()
