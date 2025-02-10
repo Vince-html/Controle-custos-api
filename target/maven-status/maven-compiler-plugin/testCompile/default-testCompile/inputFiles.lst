@@ -1,5 +1,7 @@
-/Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/ControleCustoApplicationTests.java
+/Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/ControleCustoApplicationIT.java
+/Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/LaborTypeIT.java
+/Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/LaborTypesEntityIT.java
+/Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/RawMaterialEntityIT.java
 /Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/RawMaterialIT.java
-/Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/RawMaterialUnitTest.java
+/Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/SupplierEntityIT.java
 /Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/SupplierIT.java
-/Users/vicente/Documents/api-controle-custo/src/test/java/com/bordado/controle_custo/SupplierUnitTest.java

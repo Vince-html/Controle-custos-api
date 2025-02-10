@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SupplierMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">controle-custo</a> &gt; <a href="index.source.html" class="el_package">com.bordado.controle_custo.web.dto.mapper</a> &gt; <span class="el_source">SupplierMapper.java</span></div><h1>SupplierMapper.java</h1><pre class="source lang-java linenums">package com.bordado.controle_custo.web.dto.mapper;
+
+import com.bordado.controle_custo.entity.Supplier;
+import com.bordado.controle_custo.web.dto.supplier.SupplierCreateDTO;
+import com.bordado.controle_custo.web.dto.supplier.SupplierResponseDTO;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class SupplierMapper {
+
+    public static Supplier toSupplier(SupplierCreateDTO createDTO) {
+<span class="fc" id="L14">        return new ModelMapper().map(createDTO, Supplier.class);</span>
+    }
+
+    public  static SupplierResponseDTO toDto(Supplier supplier) {
+<span class="fc" id="L18">        return new ModelMapper().map(supplier, SupplierResponseDTO.class);</span>
+    }
+
+    public static Supplier toSupplierUpdate (SupplierResponseDTO updateDTO) {
+<span class="fc" id="L22">        return new ModelMapper().map(updateDTO, Supplier.class);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

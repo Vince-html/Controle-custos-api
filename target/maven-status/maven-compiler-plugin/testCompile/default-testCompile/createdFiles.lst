@@ -1,0 +1,7 @@
+com/bordado/controle_custo/RawMaterialIT.class
+com/bordado/controle_custo/LaborTypeIT.class
+com/bordado/controle_custo/SupplierIT.class
+com/bordado/controle_custo/SupplierEntityIT.class
+com/bordado/controle_custo/LaborTypesEntityIT.class
+com/bordado/controle_custo/RawMaterialEntityIT.class
+com/bordado/controle_custo/ControleCustoApplicationIT.class

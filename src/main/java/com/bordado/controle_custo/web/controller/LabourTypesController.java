@@ -43,7 +43,7 @@ public class LabourTypesController {
                             responseCode = "201",
                             content = @Content(mediaType = "application/json",
                                     schema = @Schema(implementation = LaborTypesResponseDTO.class))),
-                    @ApiResponse(responseCode= "404",
+                    @ApiResponse(responseCode= "409",
                             content = @Content(mediaType = "application/json",
                                     schema = @Schema(implementation = ErrorMessage.class))),
                     @ApiResponse(

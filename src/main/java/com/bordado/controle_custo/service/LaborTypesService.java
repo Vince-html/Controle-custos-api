@@ -33,7 +33,7 @@ public class LaborTypesService {
 
     public LaborTypes update(Long id, LaborTypes laborUpdated) {
         LaborTypes laborTypes = laborTypesRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Mão de obra com ID " + id + " não encontrado."));
+                .orElseThrow(() -> new ResourceNotFoundException("Tipo de mão de obra com ID " + id + " não encontrado."));
         Optional.ofNullable(laborUpdated.getTypeLabor()).ifPresent(laborTypes::setTypeLabor);
         Optional.ofNullable(laborUpdated.getCost()).ifPresent(laborTypes::setCost);
 

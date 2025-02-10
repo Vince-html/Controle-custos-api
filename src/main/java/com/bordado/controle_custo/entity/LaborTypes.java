@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,4 +28,16 @@ public class LaborTypes implements Serializable {
 
     @Column(nullable = false, precision = 7, scale = 2)
     private BigDecimal cost = BigDecimal.ZERO;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        LaborTypes that = (LaborTypes) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }
