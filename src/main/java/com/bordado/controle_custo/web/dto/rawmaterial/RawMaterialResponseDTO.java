@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RawMaterialResponseDTO {
 
+    private Long id;
     private String name;
     private String description;
     private int amount;

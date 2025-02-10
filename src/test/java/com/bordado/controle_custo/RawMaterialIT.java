@@ -114,6 +114,7 @@ public class RawMaterialIT {
     @Test
     public void editRawMaterial_dataValid_returnStatus200() {
         RawMaterialResponseDTO rawMaterial = new RawMaterialResponseDTO(
+                6L,
                 "Linha verde",
                 "linha de algodao verde",
                 10,
@@ -137,6 +138,7 @@ public class RawMaterialIT {
     @Test
     public void editRawMaterial_notFoundRawMaterial_returnStatus404() {
         RawMaterialResponseDTO rawMaterial = new RawMaterialResponseDTO(
+                6L,
                 "Linha verde",
                 "linha de algodao verde",
                 10,
@@ -161,6 +163,7 @@ public class RawMaterialIT {
     @Test
     public void editRawMaterial_NotFoundSupplier_returnStatus404() {
         RawMaterialResponseDTO rawMaterial = new RawMaterialResponseDTO(
+                6L,
                 "Linha verde",
                 "linha de algodao verde",
                 10,
