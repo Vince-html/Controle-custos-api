@@ -27,6 +27,7 @@ jobs:
         run: mvn clean verify -DskipTests=false -DfailIfNoTests=false
 
       - name: Exibir conteúdo do jacoco.xml
+        if: always()
         run: cat target/site/jacoco/jacoco.xml
 
       - name: ✅ Exibir cobertura de código
