@@ -26,30 +26,26 @@ jobs:
       - name: 📦 Construir, rodar testes e verificar cobertura
         run: mvn clean verify -DskipTests=false -DfailIfNoTests=false
 
+      - name: Exibir conteúdo do jacoco.xml
+        run: cat target/site/jacoco/jacoco.xml
+
       - name: ✅ Exibir cobertura de código
         if: always()
         run: |
           total_missed=$(grep -oP '(?<=<counter type="LINE" missed=")[0-9]+' target/site/jacoco/jacoco.xml | awk '{sum+=$1} END {print sum}')
-          total_covered=$(grep -oP '(?<=<counter type="LINE" covered=")[0-9]+' target/site/jacoco/jacoco.xml | awk '{sum+=$1} END {print sum}')
-      
-          # Se total_covered estiver vazio, define como 0
-          total_missed=${total_missed:-0}
-          total_covered=${total_covered:-0}
-          total_lines=$((total_missed + total_covered))
-      
-          if [ "$total_lines" -eq 0 ]; then
-            echo "❌ Nenhuma linha de código foi analisada. Cobertura: 0%"
+          total_lines=$(grep -oP '(?<=<counter type="LINE" covered=")[0-9]+' target/site/jacoco/jacoco.xml | awk '{sum+=$1} END {print sum}')
+          
+          if [[ -z "$total_missed" || -z "$total_lines" ]]; then
+            echo "Erro: Não foi possível calcular a cobertura. Verifique se o jacoco.xml foi gerado corretamente."
             exit 1
-          else
-            coverage=$(awk "BEGIN {printf \"%.2f\", ($total_covered / $total_lines) * 100}")
-            echo "✅ Cobertura Total: $coverage%"
+          fi
       
-            # Se cobertura for menor que 80%, falha o pipeline
-            min_coverage=80
-            if (( $(echo "$coverage < $min_coverage" | bc -l) )); then
-              echo "❌ Cobertura abaixo do esperado! ($coverage% < $min_coverage%)"
-              exit 1
-            fi
+          cobertura=$(awk "BEGIN {printf \"%.2f\", (100 - ($total_missed / ($total_missed + $total_lines) * 100))}")
+          echo "✅ Cobertura Total: $cobertura%"
+      
+          if (( $(echo "$cobertura < 80" | bc -l) )); then
+            echo "❌ Cobertura abaixo do esperado! ($cobertura% < 80%)"
+            exit 1
           fi
       - name: 📢 Notificar falha (opcional)
         if: failure()
