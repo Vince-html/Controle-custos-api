@@ -31,14 +31,19 @@ jobs:
         run: |
           total_missed=$(grep -oP '(?<=<counter type="LINE" missed=")[0-9]+' target/site/jacoco/jacoco.xml | awk '{sum+=$1} END {print sum}')
           total_covered=$(grep -oP '(?<=<counter type="LINE" covered=")[0-9]+' target/site/jacoco/jacoco.xml | awk '{sum+=$1} END {print sum}')
+      
+          # Se total_covered estiver vazio, define como 0
+          total_missed=${total_missed:-0}
+          total_covered=${total_covered:-0}
           total_lines=$((total_missed + total_covered))
-          
+      
           if [ "$total_lines" -eq 0 ]; then
-            echo "Cobertura Total: 0%"
+            echo "❌ Nenhuma linha de código foi analisada. Cobertura: 0%"
+            exit 1
           else
             coverage=$(awk "BEGIN {printf \"%.2f\", ($total_covered / $total_lines) * 100}")
-            echo "Cobertura Total: $coverage%"
-            
+            echo "✅ Cobertura Total: $coverage%"
+      
             # Se cobertura for menor que 80%, falha o pipeline
             min_coverage=80
             if (( $(echo "$coverage < $min_coverage" | bc -l) )); then
