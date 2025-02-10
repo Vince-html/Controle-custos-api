@@ -28,7 +28,8 @@ jobs:
 
       - name: ✅ Exibir resultado dos testes
         if: always()
-        run: cat target/surefire-reports/*.txt || true
+        run: |
+          find target -name "*.txt" | xargs cat | tee test-results.log
 
       - name: 📢 Notificar falha (opcional)
         if: failure()
