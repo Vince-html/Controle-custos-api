@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProfitMarginResponseDTO {
     private String description;
-    private BigDecimal cost;
+    private BigDecimal profitValue;
     private Long id;
 
 }

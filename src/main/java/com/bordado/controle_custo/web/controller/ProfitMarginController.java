@@ -45,9 +45,6 @@ public class ProfitMarginController {
                             responseCode = "201",
                             content = @Content(mediaType = "application/json",
                                     schema = @Schema(implementation = ProfitMarginResponseDTO.class))),
-                    @ApiResponse(responseCode= "409",
-                            content = @Content(mediaType = "application/json",
-                                    schema = @Schema(implementation = ErrorMessage.class))),
                     @ApiResponse(
                             responseCode= "422",
                             content = @Content(mediaType = "application/json",

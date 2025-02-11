@@ -31,7 +31,7 @@ public class ProfitMarginService {
     public ProfitMargin update(Long id, ProfitMargin laborUpdated) {
         ProfitMargin laborTypes = profitMarginRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Tipo de margem de lucro com ID " + id + " não encontrado."));
-        Optional.ofNullable(laborUpdated.getValue()).ifPresent(laborTypes::setValue);
+        Optional.ofNullable(laborUpdated.getProfitValue()).ifPresent(laborTypes::setProfitValue);
         Optional.ofNullable(laborUpdated.getDescription()).ifPresent(laborTypes::setDescription);
 
         return profitMarginRepository.save(laborTypes);

@@ -5,5 +5,5 @@ import java.math.BigDecimal;
 public interface ProfitMarginProjection {
     Long getId();
     String getDescription();
-    BigDecimal getValue();
+    BigDecimal getProfitValue();
 }
