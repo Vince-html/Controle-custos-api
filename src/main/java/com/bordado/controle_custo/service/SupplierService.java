@@ -30,10 +30,11 @@ public class SupplierService {
         }
     }
 
+    @Transactional(readOnly = true)
     public Page<SupplierProjection> findAll(Pageable pageable) {
         return supplierRepository.findAllPage(pageable);
     }
-
+    @Transactional
     public void deleteById(Long id) {
         if (!supplierRepository.existsById(id)) {
             throw new ResourceNotFoundException("Fornecedor com ID " + id + " não encontrado.");

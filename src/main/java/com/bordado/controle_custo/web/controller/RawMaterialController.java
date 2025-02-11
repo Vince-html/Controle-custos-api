@@ -94,19 +94,19 @@ public class RawMaterialController {
                             in = ParameterIn.PATH,
                             name = "id",
                             required = true,
-                            description = "ID da materia prima a ser atualizada.",
+                            description = "ID da matéria prima a ser atualizada.",
                             content = @Content(schema = @Schema(type = "integer", example = "123"))
                     )
             },
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "Fornecedor atualizado com sucesso.",
+                            description = "Matéria prima atualizada com sucesso.",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = RawMaterialResponseDTO.class))
                     ),
                     @ApiResponse(
                             responseCode = "404",
-                            description = "Fornecedor não encontrado.",
+                            description = "Matéria prima não encontrada.",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))
                     ),
                     @ApiResponse(

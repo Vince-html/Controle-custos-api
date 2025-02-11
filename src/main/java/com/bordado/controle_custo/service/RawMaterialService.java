@@ -38,11 +38,11 @@ public class RawMaterialService {
         RawMaterial rawMaterial = RawMaterialMapper.toRawMaterial(createDTO, supplier);
         return rawMaterialRepository.save(rawMaterial);
     }
-
+    @Transactional
     public Page<RawMaterialProjection> findAll(Pageable pageable) {
         return rawMaterialRepository.findAllPage(pageable);
     }
-
+    @Transactional
     public RawMaterial updateRawMaterial(Long id, RawMaterial updated) {
         RawMaterial rawMaterial = rawMaterialRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Matéria-prima com ID " + id + " não encontrada."));

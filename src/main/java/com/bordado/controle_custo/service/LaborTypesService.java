@@ -27,10 +27,12 @@ public class LaborTypesService {
         }
     }
 
+    @Transactional
     public Page<LaborTypesProjection> findAll(Pageable pageable) {
         return laborTypesRepository.findAllPage(pageable);
     }
 
+    @Transactional
     public LaborTypes update(Long id, LaborTypes laborUpdated) {
         LaborTypes laborTypes = laborTypesRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Tipo de mão de obra com ID " + id + " não encontrado."));
@@ -40,6 +42,7 @@ public class LaborTypesService {
         return laborTypesRepository.save(laborTypes);
     }
 
+    @Transactional
     public void deleteById(Long id) {
 
         if (!laborTypesRepository.existsById(id)) {
