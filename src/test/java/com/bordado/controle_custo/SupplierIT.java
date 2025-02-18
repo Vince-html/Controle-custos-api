@@ -137,7 +137,7 @@ public class SupplierIT {
     }
 
     @Test
-    public void editSupplier_dataValid_returnStatus400() {
+    public void editSupplier_dataValid_returnStatus422() {
 
         ErrorMessage response = testClient
                 .put()
@@ -145,12 +145,12 @@ public class SupplierIT {
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue("teste")
                 .exchange()
-                .expectStatus().isBadRequest()
+                .expectStatus().isEqualTo(422)
                 .expectBody(ErrorMessage.class)
                 .returnResult().getResponseBody();
 
         org.assertj.core.api.Assertions.assertThat(response).isNotNull();
-        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(400);
+        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(422);
     }
 
     @Test

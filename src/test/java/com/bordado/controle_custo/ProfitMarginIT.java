@@ -63,7 +63,7 @@ public class ProfitMarginIT {
 
         assertThat(response).isNotNull();
         assertThat(response.getStatus()).isEqualTo(422);
-        assertThat(response.getMessage()).isEqualTo("Campo(s) invalido(s)");
+        assertThat(response.getMessage()).isEqualTo("Campo(s) inválido(s)");
     }
     @Test
     public void getProfitMargin_returnStatus200() {
@@ -133,7 +133,7 @@ public class ProfitMarginIT {
     }
 
     @Test
-    public void editProfitMargin_dataValid_returnStatus400() {
+    public void editProfitMargin_dataValid_returnStatus422() {
 
         ErrorMessage response = testClient
                 .put()
@@ -141,12 +141,12 @@ public class ProfitMarginIT {
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue("teste")
                 .exchange()
-                .expectStatus().isBadRequest()
+                .expectStatus().isEqualTo(422)
                 .expectBody(ErrorMessage.class)
                 .returnResult().getResponseBody();
 
         Assertions.assertThat(response).isNotNull();
-        Assertions.assertThat(response.getStatus()).isEqualTo(400);
+        Assertions.assertThat(response.getStatus()).isEqualTo(422);
     }
 
     @Test

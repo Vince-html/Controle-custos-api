@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 public class PageableDto {
-    private List content = new ArrayList<>();
+    private List<?> content = new ArrayList<>();
 
     @JsonProperty("page")
     private int number;

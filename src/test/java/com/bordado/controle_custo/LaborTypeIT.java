@@ -78,7 +78,7 @@ public class LaborTypeIT {
 
         assertThat(response).isNotNull();
         assertThat(response.getStatus()).isEqualTo(422);
-        assertThat(response.getMessage()).isEqualTo("Campo(s) invalido(s)");
+        assertThat(response.getMessage()).isEqualTo("Campo(s) inválido(s)");
     }
     @Test
     public void getLaborTypes_returnStatus200() {
@@ -138,7 +138,7 @@ public class LaborTypeIT {
     }
 
     @Test
-    public void editLaborType_dataValid_returnStatus400() {
+    public void editLaborType_dataValid_returnStatus422() {
 
         ErrorMessage response = testClient
                 .put()
@@ -146,12 +146,12 @@ public class LaborTypeIT {
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue("teste")
                 .exchange()
-                .expectStatus().isBadRequest()
+                .expectStatus().isEqualTo(422)
                 .expectBody(ErrorMessage.class)
                 .returnResult().getResponseBody();
 
         org.assertj.core.api.Assertions.assertThat(response).isNotNull();
-        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(400);
+        org.assertj.core.api.Assertions.assertThat(response.getStatus()).isEqualTo(422);
     }
 
     @Test
