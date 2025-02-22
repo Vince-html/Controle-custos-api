@@ -1,0 +1,7 @@
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'vincenofx';
+FLUSH PRIVILEGES;
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+CREATE DATABASE IF NOT EXISTS `api-rest`;
